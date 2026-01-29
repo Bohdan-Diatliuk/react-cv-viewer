@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.review-button {
+    position: fixed;
+    bottom: $spacing-3xl;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    padding: $spacing-lg $spacing-2xl;
+    background: $accent-color;
+    color: $background-white;
+    border: none;
+    border-radius: $radius-lg;
+
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    font-family: $font-primary;
+
+    cursor: pointer;
+    box-shadow: $shadow-lg;
+
+    @include transition(all);
+    z-index: 100;
+
+    &:hover {
+        background: darken($accent-color, 8%);
+        box-shadow: 0 12px 20px -5px rgba($accent-color, 0.4);
+        transform: translateX(-50%) translateY(-2px);
+    }
+
+    &:active {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__text {
+        line-height: 1;
+    }
+
+    @include tablet {
+        bottom: $spacing-2xl;
+        padding: $spacing-md $spacing-xl;
+        font-size: $font-size-base;
+    }
+
+    @include print {
+        display: none;
+    }
+}

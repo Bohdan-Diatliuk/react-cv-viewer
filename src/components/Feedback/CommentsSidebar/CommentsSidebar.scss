@@ -1,0 +1,72 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.comments-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  background: $background-white;
+  border-left: 1px solid $border-color;
+  box-shadow: $shadow-lg;
+  
+  display: flex;
+  flex-direction: column;
+  
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 50;
+
+  &--visible {
+    transform: translateX(0);
+  }
+
+  &__header {
+    @include flex-between;
+    padding: $spacing-2xl;
+    border-bottom: 1px solid $border-color;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__count {
+    background: $accent-color;
+    color: $background-white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-xs $spacing-md;
+    border-radius: 12px;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  &__list {
+    flex: 1;
+    overflow-y: auto;
+    padding: $spacing-lg;
+    
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  @include tablet {
+    width: 280px;
+  }
+
+  @include mobile {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  @include print {
+    display: none;
+  }
+}

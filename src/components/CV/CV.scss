@@ -1,0 +1,68 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.cv {
+    font-family: $font-primary;
+    color: $text-primary;
+    width: 100%;
+    max-width: $a4-width;
+    min-height: $a4-height;
+    margin: 0 auto;
+    padding: $a4-padding-vertical $a4-padding-horizontal;
+    background-color: $background-white;
+    box-shadow: $shadow-lg;
+
+    &__extracurricular-list {
+        @include flex-column;
+        gap: $spacing-md;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__extracurricular-item {
+        display: flex;
+        align-items: baseline;
+        gap: $spacing-sm;
+
+        @include mobile {
+            flex-direction: column;
+            gap: $spacing-xs;
+        }
+    }
+
+    &__extracurricular-period {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+        flex-shrink: 0;
+    }
+
+    @include tablet {
+        max-width: 100%;
+        box-shadow: none;
+        padding: $spacing-2xl $spacing-xl;
+    }
+
+    @include mobile {
+        padding: $spacing-xl $spacing-lg;
+    }
+
+    @include print {
+        width: $a4-width;
+        height: auto;
+        max-width: none;
+        margin: 0;
+        padding: $a4-padding-vertical $a4-padding-horizontal;
+        box-shadow: none;
+        page-break-after: auto;
+
+        &__extracurricular-list {
+            gap: $spacing-sm;
+        }
+
+        &__extracurricular-item {
+            line-height: $line-height-normal;
+        }
+    }
+}

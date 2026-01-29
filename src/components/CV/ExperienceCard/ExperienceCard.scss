@@ -1,0 +1,80 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.experience-card {
+    @include flex-column;
+    gap: $spacing-md;
+
+    &__header {
+        @include flex-between;
+        gap: $spacing-lg;
+
+        @include mobile {
+            @include flex-column;
+            align-items: flex-start;
+            gap: $spacing-sm;
+        }
+    }
+
+    &__meta {
+        flex-shrink: 0;
+    }
+
+    &__period {
+        display: inline-block;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $text-secondary;
+        white-space: nowrap;
+    }
+
+    &__title-group {
+        font-size: $font-size-md;
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+        margin: 0 0 $spacing-xs 0;
+    }
+
+    &__location {
+        font-size: $font-size-sm;
+        color: $text-secondary;
+    }
+
+    &__position {
+        font-size: $font-size-base;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        margin: 0;
+    }
+
+    &__responsibilities {
+        margin: 0;
+        padding-left: $spacing-xl;
+        list-style-type: disc;
+    }
+
+    &__responsobility {
+        font-size: $font-size-base;
+        line-height: $line-height-tight;
+        color: $text-secondary;
+        margin-bottom: $spacing-sm;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include print {
+        page-break-inside: avoid;
+        gap: $spacing-sm;
+
+        &__responsibilities {
+            padding-left: $spacing-lg;
+        }
+
+        &__responsobility {
+            margin-bottom: $spacing-xs;
+            line-height: $line-height-normal;
+        }
+    }
+}

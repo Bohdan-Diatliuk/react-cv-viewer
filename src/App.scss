@@ -1,0 +1,26 @@
+@import './styles/variables';
+@import './styles/mixins';
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: $background-light;
+  position: relative;
+
+  &__main {
+    flex: 1;
+    position: relative;
+    
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  @include print {
+    background: $background-white;
+
+    &__main {
+      width: 100%;
+    }
+  }
+}

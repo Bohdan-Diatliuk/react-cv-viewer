@@ -1,0 +1,140 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.feedback-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+
+    @include flex-center;
+    z-index: 1000;
+
+    animation: fadeIn 0.2s ease;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    &__content {
+        background: $background-white;
+        border-radius: $radius-lg;
+        box-shadow: $shadow-lg;
+        width: 90%;
+        max-width: 500px;
+
+        animation: slideUp 0.3s ease;
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            } to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    &__header {
+        @include flex-between;
+        padding: $spacing-2xl;
+        border-bottom: 1px solid $border-color;
+    }
+
+    &__title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+        margin: 0;
+    }
+
+    &__close {
+        @include flex-center;
+        background: none;
+        border: none;
+        border-radius: $radius-base;
+        font-size: 32px;
+        line-height: 1;
+        color: $text-muted;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+
+        &:hover {
+            background: $background-light;
+            color: $text-primary;
+        }
+    }
+
+    &__textarea {
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        width: 100%;
+        padding: $spacing-2xl;
+        border: none;
+        line-height: $line-height-tight;
+        color: $text-primary;
+        resize: none;
+        outline: none;
+
+        &::placeholder {
+            color: $text-muted;
+        }
+    }
+
+    &__footer {
+        @include flex-between;
+        padding: $spacing-xl  $spacing-2xl;
+        border-top: 1px solid $border-color;
+        gap: $spacing-md;
+    }
+
+    &__button {
+        font-family: $font-primary;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        padding: $spacing-md $spacing-2xl;
+        border: none;
+        border-radius: $radius-base;
+        cursor: pointer;
+        @include transition(all);
+
+        &--cancel {
+            background: $background-light;
+            color: $text-secondary;
+
+            &:hover {
+                background: darken($background-light, 5%);
+            }
+        }
+
+        &--submit {
+            background: $accent-color;
+            color: $background-white;
+
+            &:hover {
+                background: darken($accent-color, 5%);
+            }
+
+            &:disabled {
+                background: $border-color;
+                color: $text-muted;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    @include print {
+        display: none;
+    }
+}

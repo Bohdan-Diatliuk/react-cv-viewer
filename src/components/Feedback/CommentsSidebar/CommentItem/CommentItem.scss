@@ -1,0 +1,58 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.comment-item {
+  background: $background-light;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  @include transition(all);
+
+  &:hover {
+    border-color: $border-color;
+    box-shadow: $shadow-sm;
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__delete {
+    background: none;
+    border: none;
+    padding: $spacing-xs;
+    cursor: pointer;
+    color: $text-muted;
+    @include transition(color);
+    border-radius: $radius-sm;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    &:hover {
+      color: #ef4444;
+      background: rgba(#ef4444, 0.1);
+    }
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    line-height: $line-height-tight;
+    color: $text-primary;
+    margin: 0;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+}

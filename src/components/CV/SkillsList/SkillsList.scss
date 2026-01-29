@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.skills-list {
+    @include flex-column;
+    gap: $spacing-lg;
+
+    &__group {
+        display: flex;
+        gap: $spacing-sm;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+
+    &__subtitle {
+        font-size: $font-size-base;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+        font-size: $font-size-base;
+        color: $text-secondary;
+        line-height: $line-height-tight;
+    }
+
+    &__item {
+        display: inline;
+    }
+
+    &__lever {
+        color: $text-muted;
+    }
+
+    @include print {
+        gap: $spacing-md;
+    }
+}

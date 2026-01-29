@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.cv-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+    padding-bottom: $spacing-2xl;
+    border-bottom: 2px solid $border-color;
+
+    &__name {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+        margin: 0 0 $spacing-md 0;
+        letter-spacing: -0.02em;
+    }
+
+    &__contact {
+        @include flex-center;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        font-size: $font-size-sm;
+        color: $text-secondary;
+
+        @include mobile {
+            flex-direction: column;
+            gap: $spacing-xs;
+        }
+    }
+
+    &__contact-item {
+        color: $text-secondary;
+        text-decoration: none;
+        position: relative;
+
+        &:not(:last-child)::after {
+            content: '|';
+            margin: 0 $spacing-sm;
+            color: $text-muted;
+        }
+
+        @include mobile {
+            &:not(:last-child)::after {
+                display: none
+            }
+        }
+            
+        &--link {
+            @include transition(color);
+
+            &:hover {
+                color: $accent-color;
+            }
+        }
+    }
+
+    @include print {
+        margin-bottom: $spacing-xl;
+        padding-bottom: $spacing-lg;
+    }
+}

@@ -14,9 +14,12 @@ const SkillsList: React.FC<SkillsListProps> = ({ languages, skills }) => {
                 <h3 className="skills-list__subtitle">Languages:</h3>
                 <div className="skills-list__items">
                     {languages.map((lang, index) => (
-                        <span key={index} className="skills-list__item">
-                            {index < languages.length - 1 && <span className="skills-list__separator">,</span>}
-                        </span>
+                        <React.Fragment key={index}>
+                            <span className="skills-list__item">
+                                {lang.name} <span className="skills-list__level">({lang.level})</span>
+                            </span>
+                            {index < languages.length - 1 && ', '}
+                        </React.Fragment>
                     ))}
                 </div>
             </div>
@@ -25,9 +28,10 @@ const SkillsList: React.FC<SkillsListProps> = ({ languages, skills }) => {
                 <h3 className="skills-list__subtitle">Additional Skills:</h3>
                 <div className="skills-list__items">
                     {skills.map((skill, index) => (
-                        <span key={index} className="skills-list__item">
-                            {index < skill.length - 1 && <span className="skills-list__separator">,</span>}
-                        </span>
+                        <React.Fragment key={index}>
+                            <span className="skills-list__item">{skill}</span>
+                            {index < skills.length - 1 && ', '}
+                        </React.Fragment>
                     ))}
                 </div>
             </div>
