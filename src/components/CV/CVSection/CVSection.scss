@@ -1,5 +1,4 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles' as *;
 
 .cv-section {
     margin-bottom: $spacing-3xl;

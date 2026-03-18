@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles' as *;
+@use 'sass:color';
 
 .review-button {
     position: fixed;
@@ -28,7 +28,7 @@
     z-index: 100;
 
     &:hover {
-        background: darken($accent-color, 8%);
+        background: color.adjust($accent-color, $lightness: -8%);
         box-shadow: 0 12px 20px -5px rgba($accent-color, 0.4);
         transform: translateX(-50%) translateY(-2px);
     }

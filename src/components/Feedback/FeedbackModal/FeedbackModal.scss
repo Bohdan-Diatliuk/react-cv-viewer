@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles' as *;
+@use 'sass:color';
 
 .feedback-modal {
     position: fixed;
@@ -114,7 +114,7 @@
             color: $text-secondary;
 
             &:hover {
-                background: darken($background-light, 5%);
+                background: color.adjust($background-light, $lightness: -5%);
             }
         }
 
@@ -123,7 +123,7 @@
             color: $background-white;
 
             &:hover {
-                background: darken($accent-color, 5%);
+                background: color.adjust($accent-color, $lightness: -5%);
             }
 
             &:disabled {

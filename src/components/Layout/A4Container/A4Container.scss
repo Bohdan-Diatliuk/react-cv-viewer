@@ -1,5 +1,4 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles' as *;
 
 .a4-container {
     @include align-start;
